@@ -164,7 +164,7 @@
             <p data-i18n="pricing.subtitle">От лек старт до пълна многоканална AI инфраструктура.</p>
           </div>
 
-          <div class="pricing-grid">
+          <div class="pricing-grid pricing-two">
             <article class="pricing-card glass-card">
               <p class="plan-name" data-i18n="pricing.starter.name">Starter</p>
               <p class="plan-price" data-i18n="pricing.starter.price">€28/мес</p>
@@ -173,39 +173,30 @@
                 <li data-i18n="pricing.starter.f1">1 комуникационен канал</li>
                 <li data-i18n="pricing.starter.f2">AI асистент 24/7</li>
                 <li data-i18n="pricing.starter.f3">Базова персонализация</li>
-                <li data-i18n="pricing.starter.f4">Email поддръжка</li>
+                <li data-i18n="pricing.starter.f4">Стандартни skills от каталога</li>
+                <li data-i18n="pricing.starter.f5">Email поддръжка (48ч отговор)</li>
+                <li data-i18n="pricing.starter.f6">Изолиран сървър</li>
               </ul>
               <a class="btn btn-secondary" href="#contact" data-plan="Starter" data-i18n="pricing.starter.cta">Изберете Starter</a>
             </article>
 
             <article class="pricing-card glass-card featured">
-              <div class="featured-badge" data-i18n="pricing.popular">Популярен</div>
-              <p class="plan-name" data-i18n="pricing.business.name">Business</p>
-              <p class="plan-price" data-i18n="pricing.business.price">€68/мес</p>
-              <p class="plan-setup" data-i18n="pricing.business.setup">€420 еднократна настройка</p>
+              <div class="featured-badge" data-i18n="pricing.popular">Препоръчан</div>
+              <p class="plan-name" data-i18n="pricing.clawsourcing.name">Clawsourcing</p>
+              <p class="plan-price" data-i18n="pricing.clawsourcing.price">€550/мес</p>
+              <p class="plan-setup" data-i18n="pricing.clawsourcing.setup">€1,400 еднократна настройка</p>
               <ul class="plan-features">
-                <li data-i18n="pricing.business.f1">До 3 канала (WhatsApp + Telegram + Facebook и др.)</li>
-                <li data-i18n="pricing.business.f2">AI асистент 24/7</li>
-                <li data-i18n="pricing.business.f3">Пълна персонализация</li>
-                <li data-i18n="pricing.business.f4">Knowledge base от вашия сайт</li>
-                <li data-i18n="pricing.business.f5">Приоритетна поддръжка</li>
+                <li data-i18n="pricing.clawsourcing.f1">Неограничени канали</li>
+                <li data-i18n="pricing.clawsourcing.f2">Custom-built AI служител за вашите процеси</li>
+                <li data-i18n="pricing.clawsourcing.f3">Custom skill development (включено)</li>
+                <li data-i18n="pricing.clawsourcing.f4">Месечни подобрения и оптимизации</li>
+                <li data-i18n="pricing.clawsourcing.f5">Knowledge base от вашия бизнес</li>
+                <li data-i18n="pricing.clawsourcing.f6">Engineering поддръжка (2ч отговор)</li>
+                <li data-i18n="pricing.clawsourcing.f7">24/7 мониторинг и бекъпи</li>
+                <li data-i18n="pricing.clawsourcing.f8">Zero lock-in — напускате когато решите</li>
               </ul>
-              <a class="btn btn-primary" href="#contact" data-plan="Business" data-i18n="pricing.business.cta">Изберете Business</a>
-            </article>
-
-            <article class="pricing-card glass-card">
-              <p class="plan-name" data-i18n="pricing.premium.name">Premium</p>
-              <p class="plan-price" data-i18n="pricing.premium.price">€125/мес</p>
-              <p class="plan-setup" data-i18n="pricing.premium.setup">€980 еднократна настройка</p>
-              <ul class="plan-features">
-                <li data-i18n="pricing.premium.f1">Всички канали (20+)</li>
-                <li data-i18n="pricing.premium.f2">AI асистент 24/7</li>
-                <li data-i18n="pricing.premium.f3">Custom интеграции</li>
-                <li data-i18n="pricing.premium.f4">Dedicated support</li>
-                <li data-i18n="pricing.premium.f5">Multi-agent setup</li>
-                <li data-i18n="pricing.premium.f6">API достъп</li>
-              </ul>
-              <a class="btn btn-secondary" href="#contact" data-plan="Premium" data-i18n="pricing.premium.cta">Изберете Premium</a>
+              <a class="btn btn-primary" href="#contact" data-plan="Clawsourcing" data-i18n="pricing.clawsourcing.cta">Изберете Clawsourcing</a>
+              <p class="plan-total" data-i18n="pricing.clawsourcing.total">Първа година: ~€8,000 · Месец за месец, без договор</p>
             </article>
           </div>
 
@@ -299,7 +290,7 @@
           <div class="contact-copy">
             <p class="eyebrow" data-i18n="contact.eyebrow">Контакт</p>
             <h2 data-i18n="contact.title">Нека изградим вашия AI асистент</h2>
-            <p data-i18n="contact.subtitle">Изпратете кратко описание и предпочитан план. Формата е подготвена за Supabase таблица `leads`.</p>
+            <p data-i18n="contact.subtitle">Изпратете кратко описание и предпочитан план. Безплатна консултация, без ангажимент.</p>
 
             <div class="contact-points">
               <div class="contact-point">
@@ -327,15 +318,14 @@
               <input type="email" name="email" required>
             </label>
             <label>
-              <span data-i18n="contact.phone">Телефон (по желание)</span>
-              <input type="tel" name="phone">
+              <span data-i18n="contact.company">Компания (по желание)</span>
+              <input type="text" name="phone" placeholder="">
             </label>
             <label>
               <span data-i18n="contact.plan">Избран план</span>
               <select name="plan" id="planSelect">
-                <option value="Starter" data-i18n="contact.planStarter">Starter</option>
-                <option value="Business" data-i18n="contact.planBusiness">Business</option>
-                <option value="Premium" data-i18n="contact.planPremium">Premium</option>
+                <option value="Starter" data-i18n="contact.planStarter">Starter (€28/мес)</option>
+                <option value="Clawsourcing" data-i18n="contact.planClawsourcing">Clawsourcing (€550/мес)</option>
               </select>
             </label>
             <label>

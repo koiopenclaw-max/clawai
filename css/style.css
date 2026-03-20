@@ -481,6 +481,19 @@ p {
   align-items: stretch;
 }
 
+.pricing-grid.pricing-two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.plan-total {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 12px;
+  text-align: center;
+}
+
 .pricing-card {
   display: flex;
   flex-direction: column;

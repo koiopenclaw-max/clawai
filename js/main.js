@@ -1,5 +1,5 @@
-const SUPABASE_URL = "YOUR_SUPABASE_URL";
-const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+const SUPABASE_URL = "https://mtxyibzekucxvwxlysbx.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im10eHlpYnpla3VjeHZ3eGx5c2J4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwMDQ3MjgsImV4cCI6MjA4OTU4MDcyOH0.cZX230IvZLtjHQ1kP9zpENa5CDSmZwNPx3Cp8QVWepc";
 
 const translations = window.CLAWAI_TRANSLATIONS || {};
 const form = document.getElementById("leadForm");
@@ -158,13 +158,13 @@ async function handleFormSubmit(event) {
   submitButton.disabled = true;
 
   const payload = {
-    name: form.name.value.trim(),
+    full_name: form.name.value.trim(),
     email: form.email.value.trim(),
-    phone: form.phone.value.trim(),
-    plan: form.plan.value,
-    message: form.message.value.trim(),
+    company_name: form.phone.value.trim() || null,
+    interested_plan: form.plan.value.toLowerCase(),
+    notes: form.message.value.trim(),
     language: currentLanguage,
-    created_at: new Date().toISOString()
+    source: 'landing_page'
   };
 
   const client = getSupabaseClient();
@@ -175,7 +175,7 @@ async function handleFormSubmit(event) {
       return;
     }
 
-    const { error } = await client.from("leads").insert([payload]);
+    const { error } = await client.from("contact_requests").insert([payload]);
 
     if (error) {
       throw error;
