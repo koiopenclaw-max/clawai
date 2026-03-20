@@ -676,6 +676,22 @@ p {
   gap: 10px;
 }
 
+#clawsourcingFields {
+  display: grid;
+  gap: 18px;
+  animation: fadeIn 300ms ease;
+}
+
+#clawsourcingFields label {
+  display: grid;
+  gap: 10px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .contact-form span {
   color: var(--text);
 }

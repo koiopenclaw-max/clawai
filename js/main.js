@@ -91,15 +91,26 @@ function initFaqAccordion() {
   });
 }
 
+function toggleClawsourcingFields() {
+  const fields = document.getElementById("clawsourcingFields");
+  if (fields && planSelect) {
+    fields.style.display = planSelect.value === "clawsourcing" ? "block" : "none";
+  }
+}
+
 function initPlanSelection() {
   planButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const plan = button.getAttribute("data-plan");
       if (plan && planSelect) {
-        planSelect.value = plan;
+        planSelect.value = plan.toLowerCase();
+        toggleClawsourcingFields();
       }
     });
   });
+
+  planSelect?.addEventListener("change", toggleClawsourcingFields);
+  toggleClawsourcingFields();
 }
 
 function initSmoothScroll() {
@@ -157,11 +168,15 @@ async function handleFormSubmit(event) {
   setFormStatus("", "contact.loading");
   submitButton.disabled = true;
 
+  const isClawsourcing = form.plan.value === "clawsourcing";
   const payload = {
     full_name: form.name.value.trim(),
     email: form.email.value.trim(),
-    company_name: form.phone.value.trim() || null,
-    interested_plan: form.plan.value.toLowerCase(),
+    company_name: form.company_name.value.trim() || null,
+    company_website: isClawsourcing ? (form.company_website?.value?.trim() || null) : null,
+    role_description: isClawsourcing ? (form.role_description?.value?.trim() || null) : null,
+    current_tools: isClawsourcing ? (form.current_tools?.value?.trim() || null) : null,
+    interested_plan: form.plan.value,
     notes: form.message.value.trim(),
     language: currentLanguage,
     source: 'landing_page'

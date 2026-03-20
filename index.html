@@ -319,18 +319,35 @@
             </label>
             <label>
               <span data-i18n="contact.company">Компания (по желание)</span>
-              <input type="text" name="phone" placeholder="">
+              <input type="text" name="company_name" placeholder="">
             </label>
             <label>
               <span data-i18n="contact.plan">Избран план</span>
               <select name="plan" id="planSelect">
-                <option value="Starter" data-i18n="contact.planStarter">Starter (€28/мес)</option>
-                <option value="Clawsourcing" data-i18n="contact.planClawsourcing">Clawsourcing (€550/мес)</option>
+                <option value="starter" data-i18n="contact.planStarter">Starter (€28/мес)</option>
+                <option value="clawsourcing" data-i18n="contact.planClawsourcing">Clawsourcing (€550/мес)</option>
               </select>
             </label>
+
+            <!-- Clawsourcing-only fields (hidden by default, shown when plan=clawsourcing) -->
+            <div id="clawsourcingFields" style="display:none;">
+              <label>
+                <span data-i18n="contact.website">Уебсайт</span>
+                <input type="url" name="company_website" placeholder="https://example.com">
+              </label>
+              <label>
+                <span data-i18n="contact.role">Каква роля искате да автоматизирате?</span>
+                <textarea name="role_description" rows="3" placeholder="Опишете какво прави човекът днес — задачи, отговорности, какво отнема най-много време..."></textarea>
+              </label>
+              <label>
+                <span data-i18n="contact.tools">Какви инструменти ползвате?</span>
+                <input type="text" name="current_tools" placeholder="Gmail, Excel, CRM, WhatsApp...">
+              </label>
+            </div>
+
             <label>
               <span data-i18n="contact.message">Съобщение</span>
-              <textarea name="message" rows="5" required></textarea>
+              <textarea name="message" rows="4" required></textarea>
             </label>
 
             <button class="btn btn-primary btn-submit" type="submit" data-i18n="contact.submit">Изпрати запитване</button>
