@@ -106,29 +106,19 @@ async function createContactRequest(email) {
 }
 
 function showSuccessBanner() {
-  const banner = document.createElement("div");
-  banner.style.cssText =
-    "position:fixed;top:0;left:0;right:0;z-index:9999;background:linear-gradient(135deg,#059669,#10b981);color:white;text-align:center;padding:16px 20px;font-family:inherit;font-size:1.05rem;font-weight:600;box-shadow:0 4px 20px rgba(0,0,0,0.15);";
-  banner.textContent =
-    document.documentElement.lang === "en"
-      ? "✅ Payment successful! We'll set up your AI assistant within 24 hours."
-      : "✅ Плащането е успешно! Ще настроим вашия AI асистент до 24 часа.";
-
-  const close = document.createElement("button");
-  close.textContent = "✕";
-  close.style.cssText =
-    "position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;color:white;font-size:1.2rem;cursor:pointer;padding:4px 8px;";
-  close.addEventListener("click", () => banner.remove());
-  banner.style.position = "fixed";
-  banner.appendChild(close);
-
-  document.body.prependChild
-    ? document.body.prepend(banner)
-    : document.body.insertBefore(banner, document.body.firstChild);
+  // Hide all regular sections, show success page
+  const successPage = document.getElementById("success-page");
+  if (successPage) {
+    // Hide everything except header, footer, and success page
+    document.querySelectorAll("main > section").forEach((s) => {
+      if (s.id !== "success-page") s.style.display = "none";
+    });
+    successPage.style.display = "flex";
+    
+    // Scroll to top
+    window.scrollTo(0, 0);
+  }
 
   // Clean up URL hash
   history.replaceState(null, "", window.location.pathname);
-
-  // Auto-remove after 10s
-  setTimeout(() => banner.remove(), 10000);
 }
