@@ -214,3 +214,17 @@ initFaqAccordion();
 initPlanSelection();
 initForm();
 initSmoothScroll();
+
+// Scroll reveal
+(function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.transitionDelay = entry.target.dataset.delay || '0s';
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+})();
