@@ -215,8 +215,9 @@ initPlanSelection();
 initForm();
 initSmoothScroll();
 
-// Scroll reveal
+// Scroll reveal — add reveal-ready to body so CSS hides elements only when JS is available
 (function() {
+  document.body.classList.add('reveal-ready');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
