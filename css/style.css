@@ -972,8 +972,11 @@ p {
   .contact-grid,
   .footer-grid,
   .pricing-grid,
+  .pricing-grid.pricing-two,
   .steps-grid {
     grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
   }
 
   .comparison-grid {
